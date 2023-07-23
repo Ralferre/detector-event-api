@@ -1,0 +1,118 @@
+Nome:
+detector event api
+
+
+Contexto:
+Uma API que recebe por sistema eventos de detectores de amônia e os armazena em banco de dados com data e hora desses eventos. Os detectores disparam sistema registrador quando etes detectam concentraçao acima de 20ppm, armazenando qual detector (id), concentraçao máxima detectada, data e horário dessa ocorrência. A partir desses registros, usuários com perfil de acesso nesse mesmo sistema poderão consultar esses eventos por filtros aplicados por data, período e id dos detectores.
+
+Contratos:
+
+Cadastro de evento:
+- id (DT_004);
+- nome detector (estufa resfriamento de presuto);
+- registro máximo (45 ppm);
+- data da ocorrência (DD/MM/AAAA HH:MM:SS);
+
+
+POST /api/detection-events
+
+{
+	"id": "DT_004",
+	"name": "estufa resfriamento de presunto",
+	"reg_max": 45,
+	"created_on": "2023-07-21 17:10:33" 
+}
+
+PUT /api/detection-events/{id}
+
+Reconhecimento de alarme:
+- usuário;
+- data de reconhecimento (DD:MM:SS);
+- id (DT_004);
+
+{
+	"user": "Raphael",
+	"registered_on": "2023-07-21 17:10:33",
+	"id": "DT_004"
+}
+
+DELETE /api/detection-events/{id}
+-
+
+GET /api/detection-events/{id}
+
+Um evento:
+- id (DT_004);
+- nome detector (estufa resfriamento de presuto);
+- registro máximo (45 ppm);
+- data da ocorrência (DD/MM/AAAA HH:MM:SS);
+- Status reconhecimento;
+- usuário;
+- data de reconhecimento (DD:MM:SS);
+
+GET /api/detection-events?id=DT_004&name=XPTO&created_on_start=2023-07-21 00:00:00&created_on_start_end=2023-07-21 23:59:59
+
+Lista de eventos:
+- id (DT_004);
+- nome detector (estufa resfriamento de presuto);
+- registro máximo (45 ppm);
+- data da ocorrência (DD/MM/AAAA HH:MM:SS);
+- Status reconhecimento;
+- usuário;
+- data de reconhecimento (DD:MM:SS);
+
+v1:
+{
+	"id": "DT_004",
+	"name": "estufa resfriamento de presunto",
+	"reg_max": 45,
+	"created_on": "2023-07-21 17:10:33" 
+	"status": "WARNING|REARMED|MUTED",
+	"user": "Raphael",
+	"recognized_on": "2023-07-21 17:10:33"
+}
+
+v2:
+{
+	"id": "DT_004",
+	"name": "estufa resfriamento de presunto",
+	"reg_max": 45,
+	"created_on": "2023-07-21 17:10:33",
+	"history": [
+		{
+			"status": "WARNING",
+			"user": "Raphael",
+			"created_on": "2023-07-21 17:10:33"
+		},
+		{
+			"status": "MUTED",
+			"user": "Raphael",
+			"created_on": "2023-07-21 17:11:15"
+		},
+		{
+			"status": "REARMED",
+			"user": "Raphael",
+			"created_on": "2023-07-21 17:25:56"
+		}
+	]
+}
+
+Filros:
+- id;
+- nome detector;
+- periíodo;
+
+Status de reconhecimento:
+- alarmando;
+- rearmado;
+- silenciado;
+
+
+Tecnologias:
+- GIT - OK
+- Java
+- Spring Boot Framework
+- MongoDB (NOSQL)
+- JSON
+- Docker
+
