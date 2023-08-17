@@ -6,7 +6,7 @@ import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 
-public class DetectorEventRequest {
+public class CreateDetectorEventRequest {
     @NotBlank(message = "id is mandatory")
     private final String id;
 
@@ -23,7 +23,7 @@ public class DetectorEventRequest {
     @JsonProperty("created_on")
     private final String createdOn;
 
-    public DetectorEventRequest(
+    public CreateDetectorEventRequest(
             String id,
             String name,
             Double regMax,

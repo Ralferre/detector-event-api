@@ -2,7 +2,7 @@ package com.raphaelferreira.detectoreventapi.controller.dto.response;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
-public class DetectorEventResponse {
+public class CreateDetectorEventResponse {
     private final String id;
     private final String name;
     @JsonProperty("reg_max")
@@ -11,7 +11,7 @@ public class DetectorEventResponse {
     @JsonProperty("created_on")
     private final String createdOn;
 
-    public DetectorEventResponse(
+    public CreateDetectorEventResponse(
             String id,
             String name,
             Double regMax,

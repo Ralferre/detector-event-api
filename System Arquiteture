@@ -9,7 +9,7 @@ Contratos:
 
 Cadastro de evento:
 - id (DT_004);
-- nome detector (estufa resfriamento de presuto);
+- nome detector (estufa resfriamento de presunto);
 - registro máximo (45 ppm);
 - data da ocorrência (DD/MM/AAAA HH:MM:SS);
 
@@ -43,7 +43,7 @@ GET /api/detection-events/{id}
 
 Um evento:
 - id (DT_004);
-- nome detector (estufa resfriamento de presuto);
+- nome detector (estufa resfriamento de presunto);
 - registro máximo (45 ppm);
 - data da ocorrência (DD/MM/AAAA HH:MM:SS);
 - Status reconhecimento;
@@ -54,12 +54,12 @@ GET /api/detection-events?id=DT_004&name=XPTO&created_on_start=2023-07-21 00:00:
 
 Lista de eventos:
 - id (DT_004);
-- nome detector (estufa resfriamento de presuto);
+- nome detector (estufa resfriamento de presunto);
 - registro máximo (45 ppm);
 - data da ocorrência (DD/MM/AAAA HH:MM:SS);
 - Status reconhecimento;
 - usuário;
-- data de reconhecimento (DD:MM:SS);
+- data de reconhecimento (DD:MM:SS HH:MM:SS);
 
 v1:
 {
@@ -100,7 +100,7 @@ v2:
 Filros:
 - id;
 - nome detector;
-- periíodo;
+- período;
 
 Status de reconhecimento:
 - alarmando;
